@@ -1,14 +1,15 @@
+// styles
 import './App.css';
+
+// components
+import Header from './components/Header';
+import Main from './components/Main';
 
 function App() {
 	return (
 		<div className="App">
-			{/* header */}
-			<header className="header">
-				<h1>Football Highlights</h1>
-			</header>
-			{/* main */}
-			<main className="main"></main>
+			<Header />
+			<Main />
 		</div>
 	);
 }
