@@ -8,10 +8,6 @@ export default function Main() {
 	const { data, isLoading, error } = useFetch(
 		'https://www.scorebat.com/video-api/v3/'
 	);
-	if (data) {
-		console.log(data.response);
-	}
-
 	return (
 		<main className="main">
 			{/* search input */}

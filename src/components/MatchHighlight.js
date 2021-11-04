@@ -1,18 +1,21 @@
 export default function MatchHighlight({ data }) {
-	const dataArray = data.response;
-	const dataArrayLength = dataArray.length;
-	console.log(dataArrayLength);
+	const footballMatches = [...data.response];
+	console.log(footballMatches);
 
-	return <></>;
-
-	// <div className="competition-name">
-	// 	<p className="competition-title"></p>
-	// 	<div className="match-content">
-	// 		<div className="match-details">
-	// 			<p className="match-title"></p>
-	// 			<p className="date"></p>
-	// 			<div className="match-video"></div>
-	// 		</div>
-	// 	</div>
-	// </div>
+	return (
+		<>
+			{footballMatches.map((match, index) => (
+				<div key={index} className="competition-name">
+					<p className="competition-title">{match.competition}</p>
+					<div className="match-content">
+						<div className="match-details">
+							<p className="match-title">{match.title}</p>
+							<p className="date">{match.date.toLocaleString()}</p>
+							<div className="match-video">{match.videos[0].embed}</div>
+						</div>
+					</div>
+				</div>
+			))}
+		</>
+	);
 }
