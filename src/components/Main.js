@@ -1,16 +1,20 @@
-import { useFetch } from '../hooks/useFetch';
+import { useFetch } from "../hooks/useFetch";
 
 // styles
-import './Main.css';
-import MatchHighlight from './MatchHighlight';
+import "./Main.css";
+
+// components
+import MatchHighlight from "./MatchHighlight";
+import SelectCompetition from "./SelectCompetition";
 
 export default function Main() {
 	const { data, isLoading, error } = useFetch(
-		'https://www.scorebat.com/video-api/v3/'
+		"https://www.scorebat.com/video-api/v3/"
 	);
 	return (
 		<main className="main">
 			{/* search input */}
+			<SelectCompetition />
 			{/* all content */}
 			{error && <p className="error">{error}</p>}
 			{isLoading && <p className="loading">Loading...</p>}

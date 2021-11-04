@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react";
+
+// styles
+import "./MatchHighlight.css";
+
 export default function MatchHighlight({ data }) {
-	const footballMatches = [...data.response];
-	console.log(footballMatches);
+	const [footballMatches, setFootballMatches] = useState([]);
+
+	// console.log(...footballMatches);
+
+	const formatDate = (date) => {
+		const indexOfHourToCut = date.indexOf("T");
+		return date.slice(0, indexOfHourToCut);
+	};
+
+	useEffect(() => {
+		setFootballMatches(data.response);
+	}, [data.response]);
 
 	return (
 		<>
@@ -10,8 +25,8 @@ export default function MatchHighlight({ data }) {
 					<div className="match-content">
 						<div className="match-details">
 							<p className="match-title">{match.title}</p>
-							<p className="date">{match.date.toLocaleString()}</p>
-							<div className="match-video">{match.videos[0].embed}</div>
+							<p className="date">{formatDate(match.date)}</p>
+							<div className="match-video"></div>
 						</div>
 					</div>
 				</div>
